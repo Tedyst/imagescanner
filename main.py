@@ -27,6 +27,15 @@ def fill_shown(image, x, y):
     return image
 
 
+def write_result(result):
+    f = open("result.txt", "w")
+    for i in result:
+        if i == 0:
+            f.write("A\n")
+        else:
+            f.write("F\n")
+
+
 def main():
     scanned = scan.scan(sys.argv[1])
     shown = scanned
@@ -55,6 +64,7 @@ def main():
         cv2.setMouseCallback("Scanat", print_coord)
         cv2.waitKey(5000)
         cv2.destroyAllWindows()
+    write_result(result)
 
 
 main()
