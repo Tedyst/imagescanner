@@ -5,7 +5,9 @@ import cv2
 import numpy as np
 import config as c
 from tkinter.filedialog import askopenfilename
-from tkinter import Tk
+import tkinter as tk
+from display import Text
+from PIL import Image, ImageTk
 
 
 def print_coord(event, x, y, flags, param):
@@ -39,8 +41,10 @@ def write_result(result):
 
 
 def main():
-    Tk().withdraw()
-    filename = askopenfilename()
+    root = tk.Tk()
+    root.withdraw()
+    # filename = askopenfilename()
+    filename = "images/119022156_256252842100882_705531793871380552_n.jpg"
     scanned = scan.scan(filename)
     shown = scanned
     result = []
@@ -69,6 +73,26 @@ def main():
         cv2.waitKey(5000)
         cv2.destroyAllWindows()
     write_result(result)
+    text = ""
+    for i in result:
+        if i == 0:
+            text += "A\n"
+        else:
+            text += "B\n"
+
+    root.deiconify()
+    canvas = tk.Canvas(root, width=1000, height=800)
+    canvas.pack()
+    img = ImageTk.PhotoImage(image=Image.fromarray(shown))
+    canvas.create_image(20, 20, anchor="nw", image=img)
+
+    new_root = tk.Toplevel(root)
+    asd = Text(new_root)
+    asd.pack(side="left", fill="both",
+             expand=True)
+    asd.text.insert("end", text)
+
+    root.mainloop()
 
 
 main()
