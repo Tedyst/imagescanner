@@ -81,13 +81,13 @@ def main():
             text += "B\n"
 
     root.deiconify()
-    canvas = tk.Canvas(root, width=1000, height=800)
+    image_root = tk.Toplevel(root)
+    canvas = tk.Canvas(image_root, width=1000, height=800)
     canvas.pack()
     img = ImageTk.PhotoImage(image=Image.fromarray(shown))
-    canvas.create_image(20, 20, anchor="nw", image=img)
+    canvas.create_image(0, 0, anchor="nw", image=img)
 
-    new_root = tk.Toplevel(root)
-    asd = Text(new_root)
+    asd = Text(root)
     asd.pack(side="left", fill="both",
              expand=True)
     asd.text.insert("end", text)
