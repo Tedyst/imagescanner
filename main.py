@@ -72,13 +72,13 @@ def main():
         cv2.setMouseCallback("Scanat", print_coord)
         cv2.waitKey(5000)
         cv2.destroyAllWindows()
-    write_result(result)
+    # write_result(result)
     text = ""
     for i in result:
         if i == 0:
             text += "A\n"
         else:
-            text += "B\n"
+            text += "F\n"
 
     root.deiconify()
     image_root = tk.Toplevel(root)
