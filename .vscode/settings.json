@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/mnt/hddext4/Git/ImageScanner/venv/bin/python3.8",
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=cv2"
+    ]
+}
