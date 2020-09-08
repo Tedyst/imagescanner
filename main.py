@@ -43,8 +43,8 @@ def write_result(result):
 def main():
     root = tk.Tk()
     root.withdraw()
-    # filename = askopenfilename()
-    filename = "images/119022156_256252842100882_705531793871380552_n.jpg"
+    filename = askopenfilename()
+    # filename = "images/119022156_256252842100882_705531793871380552_n.jpg"
     scanned = scan.scan(filename)
     shown = scanned
     result = []
