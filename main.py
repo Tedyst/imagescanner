@@ -4,6 +4,8 @@ import sys
 import cv2
 import numpy as np
 import config as c
+from tkinter.filedialog import askopenfilename
+from tkinter import Tk
 
 
 def print_coord(event, x, y, flags, param):
@@ -37,7 +39,9 @@ def write_result(result):
 
 
 def main():
-    scanned = scan.scan(sys.argv[1])
+    Tk().withdraw()
+    filename = askopenfilename()
+    scanned = scan.scan(filename)
     shown = scanned
     result = []
     for column in range(0, 6):

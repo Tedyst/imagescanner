@@ -9,10 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "main.py",
-            "console": "integratedTerminal",
-            "args": [
-                "images/119022156_256252842100882_705531793871380552_n.jpg"
-            ]
+            "console": "integratedTerminal"
         }
     ]
 }
