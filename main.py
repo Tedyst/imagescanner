@@ -23,7 +23,7 @@ def mean_value(image, x, y):
 
 def fill_shown(image, x, y):
     color = 0
-    cv2.rectangle(image, (x, y), (x+15, y+15), color, -1)
+    cv2.rectangle(image, (x, y), (x+14, y+14), color, -1)
     return image
 
 
@@ -47,7 +47,8 @@ def main():
                 else:
                     fill_shown(shown, x_position + c.A_B_OFFSET, y_position)
                     result.append(1)
-
+                if c.DEBUG:
+                    print(len(result), mean_a, mean_b)
     print(result)
     if c.DEBUG:
         cv2.imshow("Scanat", scanned)
