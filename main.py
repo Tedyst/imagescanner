@@ -36,17 +36,16 @@ def main():
             for i in range(0, 5):
                 if len(result) == c.QUESTIONS_NUMBER:
                     break
-                a = mean_value(scanned, c.FIRST_PIXEL_X + c.COLUMN_SIZE*column,
-                               c.FIRST_PIXEL_Y + i*c.SQUARE_SIZE + group * c.GROUP_SIZE)
-                b = mean_value(scanned, c.FIRST_PIXEL_X + c.A_B_OFFSET + c.COLUMN_SIZE*column,
-                               c.FIRST_PIXEL_Y + i*c.SQUARE_SIZE + group * c.GROUP_SIZE)
-                if a < b:
-                    fill_shown(shown, c.FIRST_PIXEL_X + c.COLUMN_SIZE*column, c.FIRST_PIXEL_Y +
-                               i*c.SQUARE_SIZE + group * c.GROUP_SIZE)
+                x_position = c.FIRST_PIXEL_X + c.COLUMN_SIZE*column
+                y_position = c.FIRST_PIXEL_Y + i*c.SQUARE_SIZE + group * c.GROUP_SIZE
+                mean_a = mean_value(scanned, x_position, y_position)
+                mean_b = mean_value(scanned, x_position +
+                                    c.A_B_OFFSET, y_position)
+                if mean_a < mean_b:
+                    fill_shown(shown, x_position, y_position)
                     result.append(0)
                 else:
-                    fill_shown(shown, c.FIRST_PIXEL_X + c.A_B_OFFSET + c.COLUMN_SIZE*column,
-                               c.FIRST_PIXEL_Y + i*c.SQUARE_SIZE + group * c.GROUP_SIZE)
+                    fill_shown(shown, x_position + c.A_B_OFFSET, y_position)
                     result.append(1)
 
     print(result)
